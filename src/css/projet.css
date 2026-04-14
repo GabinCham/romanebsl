@@ -1,0 +1,230 @@
+/* ================================
+   PAGE PROJET - Styles spécifiques
+   ================================ */
+
+/* Navigation */
+.project-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem 4rem;
+    z-index: 100;
+    background: linear-gradient(to bottom, #0d0d0d 0%, transparent 100%);
+}
+
+.back-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: #ffccd9;
+}
+
+/* Hero Projet */
+.project-hero {
+    min-height: 100vh;
+    background: #0d0d0d;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 8rem 4rem 4rem;
+    gap: 4rem;
+}
+
+.project-hero-content {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.project-category {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #ffccd9;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.project-hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.project-hero-desc {
+    font-size: 1.125rem;
+    color: #86868b;
+    line-height: 1.7;
+    max-width: 500px;
+}
+
+.project-hero-image {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.project-hero-image img {
+    width: 100%;
+    height: 70vh;
+    object-fit: cover;
+    border-radius: 0;
+}
+
+/* Contenu Projet */
+.project-content {
+    background: #0d0d0d;
+}
+
+.project-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    padding: 6rem 4rem;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.project-section.reverse {
+    direction: rtl;
+}
+
+.project-section.reverse > * {
+    direction: ltr;
+}
+
+.project-text {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.project-text h2 {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 600;
+    color: #ffccd9;
+    margin-bottom: 1.5rem;
+}
+
+.project-text p {
+    font-size: 1rem;
+    color: #86868b;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.project-tags-list {
+    list-style: none;
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.project-tags-list li {
+    background: rgba(255, 204, 217, 0.1);
+    color: #ffccd9;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.875rem;
+}
+
+.project-image-large {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.project-image-large img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 0;
+}
+
+/* Galerie */
+.project-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    padding: 0;
+}
+
+.gallery-item {
+    opacity: 0;
+    transform: translateY(30px);
+    border: 4px solid #0d0d0d;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+/* Projet suivant */
+.next-project {
+    padding: 6rem 4rem;
+    background: #0d0d0d;
+    text-align: center;
+}
+
+.next-project-link {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    transition: transform 0.3s ease;
+}
+
+.next-project-link:hover {
+    transform: translateX(10px);
+}
+
+.next-label {
+    font-size: 0.875rem;
+    color: #86868b;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+}
+
+.next-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    color: #ffccd9;
+    margin-bottom: 1rem;
+}
+
+.next-arrow {
+    font-size: 2rem;
+    color: #ffccd9;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .project-hero {
+        grid-template-columns: 1fr;
+        padding: 6rem 2rem 4rem;
+    }
+    
+    .project-section {
+        grid-template-columns: 1fr;
+        padding: 4rem 2rem;
+    }
+    
+    .project-gallery {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-nav {
+        padding: 1.5rem 2rem;
+    }
+}

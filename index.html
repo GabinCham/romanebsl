@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple-Style Scroll Animation</title>
+    <link rel="stylesheet" href="src/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <!-- Loading screen -->
+    <div class="loading" id="loading">
+        <div class="loading-text">Chargement...</div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="header-nav">
+            <img src="assets/images/logo.png" alt="Logo" class="header-logo">
+            <div class="header-links">
+                <a href="#projects" class="header-link">Projets</a>
+                <a href="#contact" class="header-link">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Section héro avec animation -->
+    <section class="hero" id="hero">
+        <!-- Canvas animation en arrière-plan -->
+        <canvas id="heroCanvas" class="hero-canvas"></canvas>
+        
+        <!-- UI Hero (ROMANE + palette) qui partent ensemble -->
+        <div class="hero-ui" id="heroUi">
+            <!-- Contenu du hero -->
+            <div class="hero-content">
+                <h1 class="hero-title" id="heroTitle">ROMANE</h1>
+                <p class="hero-subtitle" id="heroSubtitle">BSL.</p>
+            </div>
+            
+            <!-- Palette de couleurs -->
+            <div class="color-palette" id="colorPalette">
+            <div class="color-duo" data-bg="#593eff" data-text="#ffccd9">
+                <div class="color-swatch" style="background: #593eff;"></div>
+                <div class="color-swatch" style="background: #ffccd9;"></div>
+            </div>
+            <div class="color-duo" data-bg="#FF3B30" data-text="#FFFFFF">
+                <div class="color-swatch" style="background: #FF3B30;"></div>
+                <div class="color-swatch" style="background: #FFFFFF;"></div>
+            </div>
+            <div class="color-duo" data-bg="#34C759" data-text="#000000">
+                <div class="color-swatch" style="background: #34C759;"></div>
+                <div class="color-swatch" style="background: #000000;"></div>
+            </div>
+            <div class="color-duo" data-bg="#AF52DE" data-text="#FFCC00">
+                <div class="color-swatch" style="background: #AF52DE;"></div>
+                <div class="color-swatch" style="background: #FFCC00;"></div>
+            </div>
+            <div class="color-duo" data-bg="#FF9500" data-text="#1C1C1E">
+                <div class="color-swatch" style="background: #FF9500;"></div>
+                <div class="color-swatch" style="background: #1C1C1E;"></div>
+            </div>
+            </div>
+        </div>
+        
+        <!-- Textes qui apparaissent après ROMANE (à 40% du scroll) -->
+        <div class="hero-reveal-text" id="heroRevealText">
+            <div class="reveal-block reveal-left">
+                <h2 class="reveal-title">Créativité</h2>
+                <p class="reveal-desc">Chaque projet naît d'une idée unique, d'une vision qui se transforme en réalité tangible.</p>
+            </div>
+            <div class="reveal-block reveal-right">
+                <h2 class="reveal-title">Innovation</h2>
+                <p class="reveal-desc">Repousser les limites du design pour créer des expériences mémorables et impactantes.</p>
+            </div>
+            <div class="reveal-block reveal-left">
+                <h2 class="reveal-title">Passion</h2>
+                <p class="reveal-desc">L'attention aux détails et l'amour du beau guide chaque ligne, chaque courbe.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Bento Gallery -->
+    <section class="bento-gallery" id="bento">
+        <div class="bento-container">
+            <div class="bento-grid-scrub">
+                <div class="bento-cell top-left">
+                    <img src="assets/images/projets/projet-1.png" alt="Projet 1" class="cell-img">
+                </div>
+                <div class="bento-cell top-center">
+                    <img src="assets/images/projets/projet-2.png" alt="Projet 2" class="cell-img">
+                </div>
+                <div class="bento-cell top-right">
+                    <img src="assets/images/projets/projet-3.png" alt="Projet 3" class="cell-img">
+                </div>
+                <div class="bento-cell middle-left">
+                    <img src="assets/images/projets/projet-4.png" alt="Projet 4" class="cell-img">
+                </div>
+                <div class="bento-cell center" id="centerImage">
+                    <img src="assets/images/projets/projet-5.png" alt="Projet 5" class="cell-img">
+                </div>
+                <div class="bento-cell middle-right">
+                    <img src="assets/images/projets/projet-6.png" alt="Projet 6" class="cell-img">
+                </div>
+                <div class="bento-cell bottom-left">
+                    <img src="assets/images/projets/projet-7.png" alt="Projet 7" class="cell-img">
+                </div>
+                <div class="bento-cell bottom-center">
+                    <img src="assets/images/projets/projet-8.png" alt="Projet 8" class="cell-img">
+                </div>
+                <div class="bento-cell bottom-right">
+                    <img src="assets/images/projets/projet-1.png" alt="Projet 1" class="cell-img">
+                </div>
+            </div>
+        </div>
+        
+        <div class="bento-text">
+            <h2 class="bento-text-title">Créativité sans limites</h2>
+            <p class="bento-text-desc">Chaque projet est une exploration visuelle unique, où la forme et la couleur se rencontrent pour créer des expériences mémorables.</p>
+        </div>
+    </section>
+
+    <!-- Section Projets -->
+    <section class="projects-section" id="projects">
+        <div class="projects-header">
+            <h2 class="projects-section-title">Projets</h2>
+            <p class="projects-section-subtitle">Sélection de réalisations</p>
+        </div>
+        
+        <!-- Projet 1 - Brand Identity -->
+        <article class="project-showcase" onclick="window.location.href='projet-1.html'" style="cursor: pointer;">
+            <div class="project-info">
+                <span class="project-number">01</span>
+                <h3 class="project-name">La ferme michoux</h3>
+                <p class="project-description">Identité visuelle complète incluant logo, typographie et système graphique pour une marque de luxe parisienne.</p>
+                <div class="project-tags">
+                    <span class="tag">Direction Artistique</span>
+                    <span class="tag">Identité</span>
+                </div>
+            </div>
+            <div class="project-visuals">
+                <div class="visual-large">
+                    <img src="assets/images/projets/projet-1.png" alt="Brand Identity" class="project-img">
+                </div>
+                <div class="visual-small">
+                    <img src="assets/images/projets/projet-1.png" alt="Detail 1" class="project-img-small">
+                    <img src="assets/images/projets/projet-1.png" alt="Detail 2" class="project-img-small">
+                </div>
+            </div>
+        </article>
+        
+        <!-- Projet 2 - Digital Experience -->
+        <article class="project-showcase reverse" onclick="window.location.href='projet-2.html'" style="cursor: pointer;">
+            <div class="project-info">
+                <span class="project-number">02</span>
+                <h3 class="project-name">Musique j'ai oublié le nom</h3>
+                <p class="project-description">Expérience web immersive combinant motion design et interactions fluides pour un résultat impactant.</p>
+                <div class="project-tags">
+                    <span class="tag">Web Design</span>
+                    <span class="tag">Motion</span>
+                </div>
+            </div>
+            <div class="project-visuals">
+                <div class="visual-large">
+                    <img src="assets/images/projets/projet-6.png" alt="Digital Experience" class="project-img">
+                </div>
+                <div class="visual-small">
+                    <img src="assets/images/projets/projet-6.png" alt="Detail 1" class="project-img-small">
+                    <img src="assets/images/projets/projet-6.png" alt="Detail 2" class="project-img-small">
+                </div>
+            </div>
+        </article>
+        
+        <!-- Projet 3 - Editorial Design -->
+        <article class="project-showcase" onclick="window.location.href='projet-3.html'" style="cursor: pointer;">
+            <div class="project-info">
+                <span class="project-number">03</span>
+                <h3 class="project-name">Inclusijeux</h3>
+                <p class="project-description">Direction artistique et mise en page d'un magazine premium avec un soin particulier apporté à la typographie.</p>
+                <div class="project-tags">
+                    <span class="tag">Édition</span>
+                    <span class="tag">Typographie</span>
+                </div>
+            </div>
+            <div class="project-visuals">
+                <div class="visual-large">
+                    <img src="assets/images/projets/projet-7.png" alt="Editorial Design" class="project-img">
+                </div>
+                <div class="visual-small">
+                    <img src="assets/images/projets/projet-7.png" alt="Detail 1" class="project-img-small">
+                    <img src="assets/images/projets/projet-7.png" alt="Detail 2" class="project-img-small">
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <!-- Section Contact -->
+    <section class="contact-section" id="contact">
+        <div class="contact-content">
+            <h2 class="contact-title">Contact</h2>
+            <p class="contact-desc">Un projet ? Une idée ? Parlons-en.</p>
+            <a href="mailto:hello@romanebsl.com" class="contact-email">hello@romanebsl.com</a>
+        </div>
+        <div class="contact-logo">
+            <img src="assets/images/logo.svg" alt="Logo Romane BSL" class="logo-svg">
+        </div>
+    </section>
+
+    <script type="module" src="src/js/main.js"></script>
+</body>
+</html>
